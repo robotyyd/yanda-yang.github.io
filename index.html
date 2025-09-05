@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Personal Website</title>
+  <meta name="description" content="Personal academic website of Your Name: about, projects, and selected publications." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;          /* slate-50 */
+      --card: #ffffff;
+      --text: #111827;        /* gray-900 */
+      --subtext: #4b5563;     /* gray-600 */
+      --accent: #0ea5e9;      /* sky-500 */
+      --muted: #e5e7eb;       /* gray-200 */
+      --ring: rgba(14,165,233,.25);
+      --maxw: 1050px;
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 32px 20px 60px; }
+    header { display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: center; background: var(--card); border: 1px solid var(--muted); border-radius: 18px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.04); }
+    .avatar { width: 140px; height: 140px; border-radius: 14px; object-fit: cover; border: 1px solid var(--muted); }
+    h1 { margin: 0; font-size: 28px; line-height: 1.25; }
+    .subtitle { margin-top: 6px; color: var(--subtext); }
+    .links { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .linkbtn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 12px; border: 1px solid var(--muted); background: white; text-decoration: none; color: var(--text); font-weight: 500; }
+    .linkbtn:hover { border-color: var(--accent); box-shadow: 0 0 0 6px var(--ring); }
+    .linkbtn svg { width: 18px; height: 18px; }
+
+    section { margin-top: 40px; }
+    .section-card { background: var(--card); border: 1px solid var(--muted); border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.04); }
+    .section-title { font-size: 22px; margin: 0 0 16px; }
+    .muted { color: var(--subtext); }
+
+    /* Projects carousel */
+    .carousel { position: relative; overflow: hidden; border-radius: 14px; border: 1px solid var(--muted); background: #000; }
+    .slides { display: flex; transition: transform .45s ease; }
+    .slide { min-width: 100%; position: relative; aspect-ratio: 16/9; background: #000; display: grid; place-items: center; }
+    .slide video, .slide iframe { width: 100%; height: 100%; object-fit: cover; border: 0; }
+    .cap { position: absolute; left: 0; right: 0; bottom: 0; color: white; background: linear-gradient(to top, rgba(0,0,0,.6), transparent); padding: 12px 14px; font-size: 14px; }
+    .dots { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+    .dot { width: 9px; height: 9px; border-radius: 999px; background: #d1d5db; border: 1px solid #9ca3af; cursor: pointer; }
+    .dot.active { background: var(--accent); border-color: var(--accent); }
+    .nav { position: absolute; inset: 0; display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
+    .nav button { pointer-events: all; background: rgba(255,255,255,.85); border: 1px solid var(--muted); width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center; cursor: pointer; margin: 8px; }
+
+    /* Publications */
+    .pubs { display: grid; gap: 14px; }
+    .pub { border: 1px solid var(--muted); border-radius: 14px; padding: 14px; background: var(--card); }
+    .pub .venue { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--subtext); }
+    .pub a { color: var(--accent); text-decoration: none; }
+    .pub a:hover { text-decoration: underline; }
+
+    /* Footer with visitor map */
+    footer { margin-top: 36px; }
+    .map-wrap { border: 1px solid var(--muted); border-radius: 18px; overflow: hidden; background: var(--card); }
+    .map-frame { width: 100%; height: 320px; border: 0; display: block; }
+    .small { font-size: 12px; color: var(--subtext); margin-top: 8px; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      header { grid-template-columns: 1fr; text-align: center; }
+      .avatar { margin: 0 auto; }
+      .links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ABOUT -->
+    <header>
+      <img class="avatar" src="assets/your_photo.jpg" alt="Your portrait" />
+      <div>
+        <h1>Your Name</h1>
+        <div class="subtitle">Your Title · Your Affiliation · Research areas</div>
+        <div class="links">
+          <a class="linkbtn" href="https://scholar.google.com/citations?user=YOURID" target="_blank" rel="noopener">
+            <!-- Scholar icon -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L2 9l10 6 10-6-10-6Z" stroke="currentColor" stroke-width="1.5"/><path d="M6 12.5v3c0 1.657 2.686 3 6 3s6-1.343 6-3v-3" stroke="currentColor" stroke-width="1.5"/></svg>
+            Scholar
+          </a>
+          <a class="linkbtn" href="https://www.linkedin.com/in/YOURNAME" target="_blank" rel="noopener">
+            <!-- LinkedIn icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05C12.49 8.6 14.42 8 16.2 8c4.02 0 4.8 2.5 4.8 5.8V24h-4v-8.2c0-2-.04-4.5-2.74-4.5-2.75 0-3.17 2.14-3.17 4.35V24H8V8z"/></svg>
+            LinkedIn
+          </a>
+          <a class="linkbtn" href="mailto:you@example.com">
+            <!-- Mail icon -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- PROJECTS -->
+    <section class="section-card" id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="muted">Short demos will auto-rotate. You can host MP4/WebM files in <code>assets/videos/</code> or embed YouTube unlisted links.</p>
+
+      <div class="carousel" data-autoplay="true" data-interval="6000">
+        <div class="slides" id="slides">
+          <!-- Slide 1: local MP4 example -->
+          <div class="slide">
+            <video src="assets/videos/demo1.mp4" playsinline muted loop></video>
+            <div class="cap">Project A — Short description. <a href="#" target="_blank" rel="noopener">Paper</a></div>
+          </div>
+          <!-- Slide 2: YouTube embed example -->
+          <div class="slide">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&controls=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="cap">Project B — Short description. <a href="#" target="_blank" rel="noopener">Paper</a></div>
+          </div>
+          <!-- Slide 3: local MP4 -->
+          <div class="slide">
+            <video src="assets/videos/demo2.mp4" playsinline muted loop></video>
+            <div class="cap">Project C — Short description. <a href="#" target="_blank" rel="noopener">Code</a></div>
+          </div>
+        </div>
+        <div class="nav">
+          <button id="prev" aria-label="Previous">&#x2039;</button>
+          <button id="next" aria-label="Next">&#x203A;</button>
+        </div>
+      </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </section>
+
+    <!-- SELECTED PUBLICATIONS -->
+    <section class="section-card" id="publications">
+      <h2 class="section-title">Selected Publications</h2>
+      <div class="pubs">
+        <article class="pub">
+          <div class="venue">Science Robotics · 2025</div>
+          <div><strong>Title of Paper One</strong></div>
+          <div class="muted">Y. YourName*, A. Coauthor, B. Coauthor</div>
+          <div><a href="#" target="_blank" rel="noopener">Paper</a> · <a href="#" target="_blank" rel="noopener">Code</a> · <a href="#" target="_blank" rel="noopener">Video</a></div>
+        </article>
+        <article class="pub">
+          <div class="venue">IEEE TBME · 2024</div>
+          <div><strong>Title of Paper Two</strong></div>
+          <div class="muted">Y. YourName*, C. Collaborator</div>
+          <div><a href="#" target="_blank" rel="noopener">Paper</a> · <a href="#" target="_blank" rel="noopener">BibTeX</a></div>
+        </article>
+        <article class="pub">
+          <div class="venue">MARSS · 2023</div>
+          <div><strong>Title of Paper Three</strong></div>
+          <div class="muted">Y. YourName*, D. E. F.</div>
+          <div><a href="#" target="_blank" rel="noopener">Paper</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VISITOR MAP -->
+    <footer>
+      <h2 class="section-title">Visitors</h2>
+      <div class="section-card">
+        <p class="muted">Paste your visitor-map widget code below (e.g., ClustrMaps / RevolverMaps / FlagCounter). A universal iframe slot is provided as a fallback.</p>
+        <div class="map-wrap">
+          <!-- Example: RevolverMaps embedded globe (replace with your own embed code) -->
+          <!-- BEGIN VISITOR MAP WIDGET: Replace this iframe with the script embed your provider gives you. -->
+          <iframe class="map-frame" srcdoc="<p style='font:14px/1.4 -apple-system,Segoe UI,Roboto,Inter,sans-serif;padding:16px'>Add your map widget embed here.</p>"></iframe>
+          <!-- END VISITOR MAP WIDGET -->
+        </div>
+        <div class="small">Tip: these widgets work on static GitHub Pages without a backend.</div>
+      </div>
+      <p class="small">© <span id="year"></span> Your Name</p>
+    </footer>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple carousel logic (auto-rotate + controls + dots)
+    const slides = document.getElementById('slides');
+    const items = Array.from(slides.children);
+    const dotsWrap = document.getElementById('dots');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let index = 0; let timer = null; const interval = parseInt(slides.parentElement.dataset.interval || '6000', 10);
+
+    function mountDots(){
+      items.forEach((_, i) => {
+        const d = document.createElement('div');
+        d.className = 'dot' + (i===0 ? ' active' : '');
+        d.addEventListener('click', () => go(i, true));
+        dotsWrap.appendChild(d);
+      });
+    }
+    function updateDots(){
+      Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i===index));
+    }
+    function go(i, user=false){
+      index = (i + items.length) % items.length;
+      slides.style.transform = `translateX(${-index*100}%)`;
+      updateDots();
+      if(user) restart();
+      ensureVideoPlayback();
+    }
+    function nextSlide(){ go(index+1); }
+    function prevSlide(){ go(index-1, true); }
+    function start(){ timer = setInterval(nextSlide, interval); ensureVideoPlayback(); }
+    function stop(){ if(timer) clearInterval(timer), timer=null; }
+    function restart(){ stop(); start(); }
+
+    // Pause auto-rotate when mouse over
+    slides.parentElement.addEventListener('mouseenter', stop);
+    slides.parentElement.addEventListener('mouseleave', start);
+    next.addEventListener('click', nextSlide);
+    prev.addEventListener('click', prevSlide);
+
+    // Autoplay videos on active slide only (muted + playsinline required for auto play)
+    function ensureVideoPlayback(){
+      items.forEach((el, i) => {
+        const vid = el.querySelector('video');
+        if(vid){ if(i===index){ vid.play().catch(()=>{}); } else { vid.pause(); vid.currentTime = 0; } }
+      });
+    }
+
+    mountDots();
+    start();
+  </script>
+</body>
+</html>
