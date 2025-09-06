@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yanda Yang — Personal Website</title>
   <meta name="description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Yanda Yang — Personal Website" />
+  <meta property="og:description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware. Research in microrobotics, path planning, and reinforcement learning." />
+  <meta property="og:url" content="https://robotyyd.github.io/" />
+  <meta property="og:image" content="https://robotyyd.github.io/assets/me.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yanda Yang — Personal Website" />
+  <meta name="twitter:description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware. Research in microrobotics, path planning, and reinforcement learning." />
+  <meta name="twitter:image" content="https://robotyyd.github.io/assets/me.jpeg" />
+  <link rel="canonical" href="https://robotyyd.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -101,6 +111,19 @@
     padding: 0 18px;
     padding-bottom: 60px;
     }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --text: #e5e7eb;   /* slate-200 */
+        --muted: #9ca3af;  /* gray-400 */
+        --link: #7cc1ff;   /* lightened link */
+      }
+      body{ background: #0b0f14; }
+      h2{ border-bottom-color: #2a2f36; }
+      .news-item{ border-bottom-color: #2a2f36; }
+      .map-wrap,
+      .research-media img,
+      .research-media video{ border-color:#2a2f36; }
+    }
   </style>
 </head>
 <body>
@@ -122,9 +145,9 @@
 
     <section id="about">
       <h2>About Me</h2>
-      <p>I'm currently a Ph.D. candidate from the <a href="https://me.udel.edu/">Department of Mechanical Engineering</a> at the <a href="https://www.udel.edu/">University of Delaware (UD)</a>. I work as a research assistant in the Soft Microrobots for Tissue Engineering Lab (SMT), supervised by <a href="https://scholar.google.com/citations?hl=en&user=Vca88o4AAAAJ&view_op=list_works">Dr. Sambeeta Das</a>. My research interest includes Microrobotics, Path Planning, and reinforcement learning.</p>
-      <p>I obtained my B.E. in Measurement, Control Technology and Instrumentation from the <a href="http://en.bjtu.edu.cn/">Beijing Jiaotong University (BJTU)</a> in 2019 and M.Sc. in Robotics from the <a href="https://www.bristol.ac.uk/">University of Bristol (UoB)</a> in 2020. During my graduate study, I completed my master's thesis at the <a href="https://www.bristolroboticslab.com/">Bristol Robotics Laboratory(BRL)</a>.</p>
-      <p>Before joining UD, I worked as a research assistant in the <a href="https://wanglab.mee.sustech.edu.cn">Advanced Actuators and Robotics Lab (AAR)</a> at the <a href="https://www.sustech.edu.cn/en/">Southern University of Science and Technology (SUSTech)</a>, supervised by <a href="https://scholar.google.com/citations?hl=en&user=5jtC1ggAAAAJ&view_op=list_works">Dr. Hongqiang Wang</a>. From Oct 2024 to Dec 2024, I worked as a full-time visiting graduate student in the <a href="https://paulsson.med.harvard.edu">Johan Paulsson Lab</a> at <a href="https://hms.harvard.edu">Harvard Medical School</a>.</p>
+      <p>I'm currently a Ph.D. candidate in the <a href="https://me.udel.edu/">Department of Mechanical Engineering</a> at the <a href="https://www.udel.edu/">University of Delaware (UD)</a>. I work as a research assistant in the Soft Microrobots for Tissue Engineering Lab (SMT), supervised by <a href="https://scholar.google.com/citations?hl=en&user=Vca88o4AAAAJ&view_op=list_works">Dr. Sambeeta Das</a>. My research interests include microrobotics, path planning, and reinforcement learning.</p>
+      <p>I obtained my B.E. in Measurement, Control Technology and Instrumentation from the <a href="http://en.bjtu.edu.cn/">Beijing Jiaotong University (BJTU)</a> in 2019 and an M.Sc. in Robotics from the <a href="https://www.bristol.ac.uk/">University of Bristol (UoB)</a> in 2020. During my graduate study, I completed my master's thesis at the <a href="https://www.bristolroboticslab.com/">Bristol Robotics Laboratory (BRL)</a>.</p>
+      <p>Before joining UD, I was a research assistant in the <a href="https://wanglab.mee.sustech.edu.cn">Advanced Actuators and Robotics Lab (AAR)</a> at the <a href="https://www.sustech.edu.cn/en/">Southern University of Science and Technology (SUSTech)</a>, supervised by <a href="https://scholar.google.com/citations?hl=en&user=5jtC1ggAAAAJ&view_op=list_works">Dr. Hongqiang Wang</a>. From Oct–Dec 2024, I was a full-time visiting graduate student in the <a href="https://paulsson.med.harvard.edu">Johan Paulsson Lab</a> at <a href="https://hms.harvard.edu">Harvard Medical School</a>.</p>
     </section>
 
     <section id="news">
@@ -148,7 +171,7 @@
         </li>
         <li class="news-item">
           <div class="news-date">10/2024</div>
-          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Began as a full-time visiting graduate student in the Harvard Medical School.</div>
+          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Began as a full-time visiting graduate student at Harvard Medical School.</div>
         </li>
         <li class="news-item">
           <div class="news-date">01/2024</div>
@@ -265,10 +288,30 @@
       </ul>
     </section>
 
+    <footer class="muted" style="text-align:center; margin-top:24px;">© <span id="year"></span> Yanda Yang</footer>
+
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      // Auto-sort News items by date (expects MM/YYYY in .news-date)
+      var list = document.querySelector('.news-list');
+      if (list){
+        var items = Array.from(list.children);
+        var parseDate = function(li){
+          var t = (li.querySelector('.news-date')||{}).textContent || '';
+          t = t.trim();
+          var parts = t.split('/');
+          var m = parseInt(parts[0], 10) || 1;
+          var y = parseInt(parts[1], 10) || 1970;
+          return new Date(y, m-1, 1).getTime();
+        };
+        items.sort(function(a,b){ return parseDate(b) - parseDate(a); });
+        items.forEach(function(li){ list.appendChild(li); });
+      }
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
