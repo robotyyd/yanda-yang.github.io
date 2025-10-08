@@ -7,12 +7,12 @@
   <meta name="description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Yanda Yang — Personal Website" />
-  <meta property="og:description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware. Research in microrobotics, path planning, and reinforcement learning." />
+  <meta property="og:description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware. Research in microrobotics, soft robotics, motion planning, and robot learning." />
   <meta property="og:url" content="https://robotyyd.github.io/" />
   <meta property="og:image" content="https://robotyyd.github.io/assets/me.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Yanda Yang — Personal Website" />
-  <meta name="twitter:description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware. Research in microrobotics, path planning, and reinforcement learning." />
+  <meta name="twitter:description" content="Personal academic website of Yanda Yang, PhD Candidate at the University of Delaware. Research in microrobotics, soft robotics, motion planning, and robot learning." />
   <meta name="twitter:image" content="https://robotyyd.github.io/assets/me.jpeg" />
   <link rel="canonical" href="https://robotyyd.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,9 +38,17 @@
     h1{ font-size: 28px; margin: 0 0 2px; font-weight: 700; }
     h2{ font-size: 20px; margin: 28px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
     .muted{ color: var(--muted); }
-    header{ display:flex; align-items:center; gap:18px; }
+    header{ display:flex; align-items:flex-start; gap:18px; }
     .avatar{ width:120px; height:120px; border-radius: 60px; object-fit: cover; }
     .subtitle{ margin-top: 4px; }
+    .head-main{ flex:1; }
+    .head-nav{ margin-left:auto; }
+    .nav-vertical{ display:flex; flex-direction: column; gap:6px; }
+    .nav-vertical a{ margin-right:0; }
+    @media (max-width:560px){
+      .head-nav{ margin-left:0; }
+      .nav-vertical{ align-items:flex-start; }
+    }
     .navmini{ margin-top:8px; font-size: 14px; }
     .navmini a{ margin-right:10px; }
     .links{ margin-top: 8px; font-size: 14px; }
@@ -111,6 +119,24 @@
     padding: 0 18px;
     padding-bottom: 60px;
     }
+    .side-nav{
+      position: fixed;
+      top: 96px;                 /* below the page title */
+      left: calc(50% + var(--maxw)/2 + 24px);  /* sit to the right of centered container */
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+      z-index: 10;
+    }
+    .side-nav a{ color: var(--link); text-decoration: none; }
+    .side-nav a:hover{ text-decoration: underline; }
+    @media (max-width: 1100px){
+      .side-nav{ left: auto; right: 12px; }   /* fall back to viewport right edge */
+    }
+    @media (max-width: 700px){
+      .side-nav{ display: none; }             /* hide on small screens to avoid overlap */
+    }
     @media (prefers-color-scheme: dark){
       :root{
         --text: #e5e7eb;   /* slate-200 */
@@ -133,7 +159,7 @@
     <!-- ABOUT -->
     <header>
       <img class="avatar" src="assets/me.jpeg" alt="Your portrait">
-      <div>
+      <div class="head-main">
         <h1>Yanda Yang</h1>
         <div class="subtitle muted">PhD Candidate, University of Delaware</div>
         <div class="links">
@@ -144,9 +170,18 @@
       </div>
     </header>
 
+    <nav class="side-nav" aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#outreach">Outreach</a>
+    </nav>
+
     <section id="about">
       <h2>About Me</h2>
-      <p>I'm currently a Ph.D. candidate in the <a href="https://me.udel.edu/">Department of Mechanical Engineering</a> at the <a href="https://www.udel.edu/">University of Delaware (UD)</a>. I work as a research assistant in the Soft Microrobots for Tissue Engineering Lab (SMT), supervised by <a href="https://scholar.google.com/citations?hl=en&user=Vca88o4AAAAJ&view_op=list_works">Dr. Sambeeta Das</a>. My research interests include microrobotics, path planning, and reinforcement learning.</p>
+      <p>I'm currently a Ph.D. candidate in the <a href="https://me.udel.edu/">Department of Mechanical Engineering</a> at the <a href="https://www.udel.edu/">University of Delaware (UD)</a>. I work as a research assistant in the Soft Microrobots for Tissue Engineering Lab (SMT), supervised by <a href="https://scholar.google.com/citations?hl=en&user=Vca88o4AAAAJ&view_op=list_works">Dr. Sambeeta Das</a>. My research interests include microrobotics, soft robotics, motion planning, and robot learning.</p>
       <p>I obtained my B.E. in Measurement, Control Technology and Instrumentation from the <a href="http://en.bjtu.edu.cn/">Beijing Jiaotong University (BJTU)</a> in 2019 and an M.Sc. in Robotics from the <a href="https://www.bristol.ac.uk/">University of Bristol (UoB)</a> in 2020. During my graduate study, I completed my master's thesis at the <a href="https://www.bristolroboticslab.com/">Bristol Robotics Laboratory (BRL)</a>.</p>
       <p>Before joining UD, I was a research assistant in the <a href="https://wanglab.mee.sustech.edu.cn">Advanced Actuators and Robotics Lab (AAR)</a> at the <a href="https://www.sustech.edu.cn/en/">Southern University of Science and Technology (SUSTech)</a>, supervised by <a href="https://scholar.google.com/citations?hl=en&user=5jtC1ggAAAAJ&view_op=list_works">Dr. Hongqiang Wang</a>. From Oct–Dec 2024, I was a full-time visiting graduate student in the <a href="https://paulsson.med.harvard.edu">Johan Paulsson Lab</a> at <a href="https://hms.harvard.edu">Harvard Medical School</a>.</p>
     </section>
@@ -155,31 +190,31 @@
       <h2>News</h2>
       <ul class="news-list">
         <li class="news-item">
-          <div class="news-date">09/2025</div>
+          <div class="news-date"><time datetime="2025-09">09/2025</time></div>
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Preprint of our new paper posted on arXiv.</div>
         </li>
         <li class="news-item">
-          <div class="news-date">08/2025</div>
+          <div class="news-date"><time datetime="2025-08">08/2025</time></div>
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Passed Ph.D. candidacy exam.</div>
         </li>
         <li class="news-item">
-          <div class="news-date">12/2024</div>
+          <div class="news-date"><time datetime="2024-12">12/2024</time></div>
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Presented a poster at the 2024 MRS Fall Meeting &amp; Exhibit.</div>
         </li>
         <li class="news-item">
-          <div class="news-date">11/2024</div>
+          <div class="news-date"><time datetime="2024-11">11/2024</time></div>
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>IEEE TBME paper accepted.</div>
         </li>
         <li class="news-item">
-          <div class="news-date">10/2024</div>
+          <div class="news-date"><time datetime="2024-10">10/2024</time></div>
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Began as a full-time visiting graduate student at Harvard Medical School.</div>
         </li>
         <li class="news-item">
-          <div class="news-date">01/2024</div>
+          <div class="news-date"><time datetime="2024-01">01/2024</time></div>
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Passed Ph.D. qualifying exam.</div>
         </li>
         <li class="news-item">
-          <div class="news-date">07/2023</div>
+          <div class="news-date"><time datetime="2023-07">07/2023</time></div>
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Two papers accepted to MARSS; one nominated for Best Student Paper Award.</div>
         </li>
       </ul>
@@ -247,7 +282,7 @@
       <ul class="proj-list">
         <li class="proj">
           <strong>Two-Wheel Self-Balancing Robot</strong>
-          <div class="muted">2023</div>
+          <div class="muted"><time datetime="2023">2023</time></div>
           <p>Designed a two-wheel self-balancing robot with accelerometer and custom wireless controller. Final version added wheels and a servo-powered lifting mechanism, demonstrated in competition.</p>
           <div>
             <img src="assets/self-balance.png" alt="Two-Wheel Self-Balancing Robot" />
@@ -255,7 +290,7 @@
         </li>
         <li class="proj">
           <strong>Accurate Positioning of the End Effector of a 7-DOF Manipulator</strong>
-          <div class="muted">2023</div>
+          <div class="muted"><time datetime="2023">2023</time></div>
           <p>Project on accurate end-effector positioning for a 7-DOF KUKA manipulator using ArUco markers. Involved DH analysis, kinematics, trajectory planning, and validation on simulation and actual robot.</p>
           <div>
             <img src="assets/kuka.png" alt="7‑DOF Manipulator positioning" />
@@ -263,7 +298,7 @@
         </li>
         <li class="proj">
           <strong>Railway Foreign Object Detection System Based on Deep Learning</strong>
-          <div class="muted">2019</div>
+          <div class="muted"><time datetime="2019">2019</time></div>
           <p>Developed a high-speed railway foreign object detection system using SSD-based CNNs, achieving rapid and precise detection across diverse environments and weather conditions.</p>
           <div>
             <img src="assets/railway-ssd.png" alt="Railway Foreign Object Detection" />
@@ -271,7 +306,7 @@
         </li>
         <li class="proj">
           <strong>Automated Underground Circular Parking System Model</strong>
-          <div class="muted">2018</div>
+          <div class="muted"><time datetime="2018">2018</time></div>
           <p>Designed an underground circular parking system using Fischertechnik, enabling fully automated car storage and retrieval with integrated sensors and optimized motion control for efficiency.</p>
           <div>
             <img src="assets/parking.png" alt="Automated Underground Circular Parking System Model" />
@@ -285,6 +320,36 @@
       <ul class="proj-list">
         <li class="proj">
           <strong>Teaching Assistant</strong> — Introduction to Robotics (MEEG671), University of Delaware
+        </li>
+      </ul>
+    </section>
+
+    <section id="outreach">
+      <h2>Outreach</h2>
+      <ul class="proj-list">
+        <li class="proj">
+          <strong>Nemours Sickle Cell Science Fair</strong>
+          <div class="muted">
+            <time datetime="2025-09-13">September 13, 2025</time> — Nemours Children’s Hospital, Wilmington DE</div>
+          <p>Engaged families and patients with hands‑on microrobotics demos using the actuation system integrated with a microscope; explained clinical relevance, and invited participants to try micro‑scale control under the microscope.</p>
+        </li>
+        <li class="proj">
+          <strong>UD Day in DC</strong>
+          <div class="muted">
+             <time datetime="2025-06-12">June 12, 2025</time> — Russell Senate Office Building, Washington, D.C.</div>
+          <p>Delivered live demonstrations with a portable magnetic actuation system integrated with a microscope, guiding attendees through operating and controlling microrobots for targeted manipulation and navigation.</p>
+        </li>
+        <li class="proj">
+          <strong>Science Camp for middle &amp; high school students</strong>
+          <div class="muted">
+            <time datetime="2024-03-09">March 9, 2024</time> — Massachusetts Institute of Technology, Cambridge MA</div>
+          <p>Co‑led hands‑on labs where students used joystick controller to drive microrobots and manipulate cells, connecting microengineering principles to real biomedical applications.</p>
+        </li>
+        <li class="proj">
+          <strong>Full Day Camp for middle school students</strong>
+          <div class="muted">
+            <time datetime="2023-04-19">April 19, 2023</time> — Boston University, Boston MA</div>
+          <p>Co‑organized a day‑long program featuring joystick controller interfaces to steer microrobots under a microscope.</p>
         </li>
       </ul>
     </section>
