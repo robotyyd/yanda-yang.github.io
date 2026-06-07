@@ -54,7 +54,15 @@
     .links{ margin-top: 8px; font-size: 14px; }
     .links a{ margin-right: 12px; }
     /* News list */
-    .news-list{ list-style:none; margin:0; padding:0; }
+    .news-list{
+      list-style:none;
+      margin:0;
+      padding:0 10px 0 0;
+      max-height: 360px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+    }
     .news-item{
       display:grid;
       grid-template-columns: 130px 1fr;
@@ -191,12 +199,20 @@
       <h2>News</h2>
       <ul class="news-list">
         <li class="news-item">
-          <div class="news-date"><time datetime="2026-01">01/2026</time></div>
-          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Our new paper published in <em>Science Advances</em>.</div>
+          <div class="news-date"><time datetime="2026-04">04/2026</time></div>
+          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Selected as a University of Delaware nominee for the Google PhD Fellowship.</div>
+        </li>
+        <li class="news-item">
+          <div class="news-date"><time datetime="2026-04">04/2026</time></div>
+          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Our new paper was published in <em>Advanced Robotics Research</em>.</div>
         </li>
         <li class="news-item">
           <div class="news-date"><time datetime="2026-01">01/2026</time></div>
-          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Invited Talk at the 2026 Gordon Research Seminar on Robotics (GRS).</div>
+          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Our new paper was published in <em>Science Advances</em>.</div>
+        </li>
+        <li class="news-item">
+          <div class="news-date"><time datetime="2026-01">01/2026</time></div>
+          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Invited talk at the 2026 Gordon Research Seminar on Robotics (GRS).</div>
         </li>
         <li class="news-item">
           <div class="news-date"><time datetime="2026-04">04/2026</time></div>
@@ -215,8 +231,8 @@
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Presented a poster at the 2024 MRS Fall Meeting &amp; Exhibit.</div>
         </li>
         <li class="news-item">
-          <div class="news-date"><time datetime="2024-11">12/2024</time></div>
-          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>IEEE TBME paper published.</div>
+          <div class="news-date"><time datetime="2024-12">12/2024</time></div>
+          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Our new paper was published in <em>IEEE Transactions on Biomedical Engineering</em>.</div>
         </li>
         <li class="news-item">
           <div class="news-date"><time datetime="2024-10">10/2024</time></div>
@@ -227,14 +243,55 @@
           <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Passed Ph.D. qualifying exam.</div>
         </li>
         <li class="news-item">
-          <div class="news-date"><time datetime="2023-07">10/2023</time></div>
-          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Two papers published to MARSS; one nominated for Best Student Paper Award.</div>
+          <div class="news-date"><time datetime="2023-10">10/2023</time></div>
+          <div class="news-text"><span class="news-dot" aria-hidden="true"></span>Two papers were published at MARSS; one was nominated for the Best Student Paper Award.</div>
         </li>
       </ul>
     </section>
 
     <section id="research">
     <h2>Research</h2>
+    <div class="research-item">
+      <div class="research-head">
+        <div><strong>Residual RL–MPC for robust microrobotic cell pushing under time-varying flow</strong></div>
+        <div class="muted"><strong>Yanda Yang</strong>, Sambeeta Das. <em>arXiv preprint</em>, 2026</div>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2603.05448" target="_blank" rel="noopener">arXiv</a>
+        </div>
+        <p>Developed a contact-gated residual reinforcement learning controller that augments model predictive control for robust magnetic microrobotic cell pushing under time-varying microfluidic flow.</p>
+      </div>
+      <div class="research-media">
+        <img src="assets/research8.png" alt="Residual RL-MPC for robust microrobotic cell pushing under time-varying flow">
+        <video src="assets/research8.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </div>
+    <div class="research-item">
+      <div class="research-head">
+        <div><strong>MicroPush: A simulator and benchmark for contact-rich cell pushing and assembly with a magnetic rolling microrobot</strong></div>
+        <div class="muted"><strong>Yanda Yang</strong>, Sambeeta Das. <em>arXiv preprint</em>, 2026</div>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2602.23607" target="_blank" rel="noopener">arXiv</a>
+        </div>
+        <p>Developed an open-source simulator and benchmark suite for contact-rich microrobotic cell pushing and multi-target assembly, with modular planning, control, and reinforcement-learning interfaces for reproducible evaluation.</p>
+      </div>
+      <div class="research-media">
+        <img src="assets/research7.png" alt="MicroPush simulator and benchmark for magnetic rolling microrobot cell pushing and assembly">
+        <video src="assets/research7.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </div>
+    <div class="research-item">
+      <div class="research-head">
+        <div><strong>MicroRoboScope: A portable and integrated mechatronic platform for magnetic and acoustic microrobotic experimentation</strong></div>
+        <div class="muted">Max Sokolich, <strong>Yanda Yang</strong>, Subrahmanyam Cherukumilli, Fatma Ceren Kirmizitas, Sambeeta Das. <em>Advanced Robotics Research</em>, 2026</div>
+        <div class="links">
+          <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adrr.202500195" target="_blank" rel="noopener">Wiley Online Library</a>
+        </div>
+        <p>We developed MicroRoboScope, a portable and integrated platform for real-time closed-loop control of magnetic and acoustic microrobots, combining microscopy, actuation, tracking, and control software in a compact system.</p>
+      </div>
+      <div class="research-media">
+        <img src="assets/research6.png" alt="MicroRoboScope portable microrobotic experimentation platform">
+      </div>
+    </div>
     <div class="research-item">
       <div class="research-head">
         <div><strong>Bioinspired growable humanoid robot with bone-mimetic linkages for versatile mobility</strong></div>
@@ -252,7 +309,7 @@
     <div class="research-item">
       <div class="research-head">
         <div><strong>Microrobot Vascular Parkour: Analytic geometry-based path planning with real-time dynamic obstacle avoidance</strong></div>
-        <div class="muted"><strong>Yanda Yang</strong>, Max Sokolich, Fatma Ceren Kirmizitas, Sambeeta Das, Andreas A. Malikopoulos.</div>
+        <div class="muted"><strong>Yanda Yang</strong>, Max Sokolich, Fatma Ceren Kirmizitas, Sambeeta Das, Andreas A. Malikopoulos. <em>arXiv preprint</em>, 2026</div>
         <div class="links">
           <a href="https://arxiv.org/abs/2509.05500" target="_blank" rel="noopener">arXiv</a>
           <a href="vascular-parkour.html" target="_blank" rel="noopener">More videos</a>
@@ -365,6 +422,7 @@
     <section id="awards">
       <h2>Honors &amp; Awards</h2>
       <ul>
+        <li>University of Delaware Nominee, <em>Google PhD Fellowship</em>, 2026.</li>
         <li>Best Student Paper Award Nomination, <em>MARSS 2023</em>.</li>
         <li>First Prize, <em>10th National Fischertechnik Engineering Technology Innovation Design Competition</em>.</li>
       </ul>
